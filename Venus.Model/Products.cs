@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Venus.Model
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class Products
+    public partial class Products : IObjectsWithState
     {
         public Products()
         {
@@ -23,5 +23,9 @@ namespace Venus.Model
         public decimal? UnitPrice { get; set; }
 
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+
+
+        [NotMapped]
+        public State State { get; set; }
     }
 }

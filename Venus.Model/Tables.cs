@@ -1,9 +1,10 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Venus.Model
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Tables
+    public partial class Tables : IObjectsWithState
     {
         public Tables()
         {
@@ -17,5 +18,9 @@ namespace Venus.Model
         public string TableNumber { get; set; }
 
         public virtual ICollection<Orders> Orders { get; set; }
+
+
+        [NotMapped]
+        public State State { get; set; }
     }
 }

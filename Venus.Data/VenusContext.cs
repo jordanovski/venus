@@ -8,6 +8,7 @@ namespace Venus.Data
         public VenusContext()
             : base("name=VenusContext")
         {
+            
         }
 
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }

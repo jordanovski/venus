@@ -1,8 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Venus.Model
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class OrderDetails
+    public partial class OrderDetails : IObjectsWithState
     {
         public int Id { get; set; }
 
@@ -20,5 +20,9 @@ namespace Venus.Model
         public virtual Orders Orders { get; set; }
 
         public virtual Products Products { get; set; }
+
+
+        [NotMapped]
+        public State State { get; set; }
     }
 }

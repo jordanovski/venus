@@ -36,13 +36,12 @@ namespace Venus.Repository
         {
             if (products.Id == default(int))
             {
-                // New entity
-                context.Products.Add(products);
+                context.Entry(products).State = EntityState.Added;
             }
             else
             {
-                // Existing entity
-                context.Entry(products).State = EntityState.Modified;
+                context.Products.Add(products);
+                context.Entry(products).State = StateHelpers.ConvertState(products.State);                
             }
         }
 
